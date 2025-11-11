@@ -40,4 +40,17 @@ Here in json we JSON.parse(jsonString) (converts json string to js object) -- ma
                 and JSON.stringify(obj) (converts js object to json string) -- mainly used when sending data to a server
 
 
+ Synchronous / Asynchronous Based - 
+ Synchronous -- line by line , if there is any blocker then in that case the rest of the code will not work 
+ it is slow in process
+
+ how we implement :  XMLHttpRequest(sync mode) 
+
+Asynchronous --- Next code runs immediately it's a non - blocker 
+fetch() , XMLHttpRequest (async) , either Promise or fetch  , async/await
+
+basically fetch() will return a Promise Object and 
+        .then() will be called on that Promise object when it's fulfilled (means data is received) otherwise 
+        .catch() will run if the Promise is rejected  ( network error or etc.)
  
+
