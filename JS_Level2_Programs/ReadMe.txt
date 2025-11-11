@@ -16,4 +16,28 @@ filter() => when we want to select specific elements that meet a condition or wh
         ==> for eg: would like to return the salary which is greater 20000
 
 reduce() => when we want to return a single value after accumulating array values that we have or you want to summarize or to get aggregate data
+
         ==> we want to calculate the total sum of 10 natural no's  sum += sum+n
+
+
+JSON ==> It is a lightweight data-interchange format used to store and exchange data between a client and a server.
+
+there are different sources through which we can exchange the data transfer from server to client or client to server those are 
+ xml ,  json , csv , mysql
+
+ JSON is easy for everyone ( human) to read , write and easy to parse and generate results.
+
+ In json data is stored in the form key and value pair
+ eg:
+ const employee =
+{
+"name" :"Niti",
+"age" : 30,
+"Department" : "training"
+}
+
+Here in json we JSON.parse(jsonString) (converts json string to js object) -- mainly used when receiving the data from a server
+                and JSON.stringify(obj) (converts js object to json string) -- mainly used when sending data to a server
+
+
+ 
