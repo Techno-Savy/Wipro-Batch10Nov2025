@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="welcome"> Hello User1!</h1>
+    <button id ="changeTxt" >Change Text</button>
+
+    <script>
+
+const button = document.getElementById("changeTxt");
+
+button.addEventListener("click", function()
+{
+    document.getElementById("welcome").innerHTML = "We have learnt HTML Clicked Events";
+}
+
+);
+
+
+
+    </script>
+
+    
+<h2>
+
+getElementById ==  use to access the html elements by ID.
+addEventListener == will wait for a click event
+innerHTML == update the page dynamically without refreshing 
+
+var == it is a function-scope , local variable and can be redefined
+let ==  Block level- scope  , and cannot be redefined 
+const == fixed value , mainly use for read only purpose
+/*
+
+function validateForm()
+{    for(var i=0;i<5 ; i++)
+     
+   
+}
+
+Data types are primitive or non-primitive
+ 
+number , string , boolean
+
+</h2>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+      let student = {};  // it will create an empty object using the {}
+
+      let person ={
+        firstName :"Niti",
+        lastName : "Dwivedi"
+
+
+      }
+
+      console.log("The username is :" , person.firstName);
+       console.log("The username is :" , person.lastName);
+
+      person.firstName = "Kapil";
+      person.age = 35;  // adding a new attribute to a person class object
+
+      console.log("Niti" in person); // to check the property
+
+      console.log('lastName' in person);
+        console.log('age' in person);
+
+        delete person.age;
+
+      console.log(person); // to print the entire object 
+
+      
+
+       let address =["kanpur","Delhi"];
+       const colorCode = [3,5,6,7];
+       const mixedArray = ["hello" ,345 , true, {address : "NewDelhi"}]; 
+
+       console.log(address[0]);
+       console.log(address);
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--A company wants to automate monthly salary calculation for employees based on their working days 
+    , basic pay and bonuses  ( a script file can be created a) Calculating gross salary b) Apply tax deductions c) Display employee net salary-->
+
+<script>
+
+function calculateGrossSalary(basic , bonus , workingDays)
+{
+ const perDay  =  basic /30;
+ let grossSalary =  perDay * workingDays +bonus;
+    return grossSalary;
+}
+
+function calculationTax(gross)
+{
+
+    let taxRate  = 0;
+    if(gross > 60000) 
+        taxRate = 0.15;
+    else if (gross > 40000) 
+        taxRate = 0.10;
+    else
+        taxRate = 0.05;
+
+    return gross * taxRate;
+}
+
+function displayEmployeeSalary(name , basic , bonus , workingDays){
+const gross = calculateGrossSalary(basic , bonus , workingDays);
+const tax = calculationTax(gross);
+const netSalary = gross - tax;
+
+
+console.log("Employee Salary....")
+console.log("Your Name " + name);
+console.log("You Basic Salary " + basic);
+console.log("Your Bonus " + bonus);
+console.log("total Working days " + workingDays);
+console.log("Your gross salary is :" + gross);
+console.log("Total tax calculated  " + tax);
+console.log(" Total net salary for this month : " + netSalary);
+
+}
+
+let name = prompt("Enter your name :");
+let basic = prompt("Enter your basic salary");
+let bonus = prompt("How much bonus it will be for this month");
+let workingDays = prompt("Total no. of working days for this month");
+
+displayEmployeeSalary(name , basic , bonus , workingDays);
+
+
+</script>
+
+</body>
+</html>

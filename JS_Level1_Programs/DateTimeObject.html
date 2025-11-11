@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // String -= a sequence of characters which is used to represent the text
+        
+        // length , toUpperCase , include , slice(start  , end) , replace . split 
+        // Date object which is a built in object that handles date and times
+
+        console.log("Niti DWivedi".length);
+        console.log("Niti Dwivedi".includes("Niti"));
+        console.log("niti,dwivedi,mca,job".split(" "));
+
+        let today = new Date();
+
+        let current = new Date();
+        let specific = new Date(2025 , 10 ,10,10 ,10 ,30 )
+       document.write(today.toDateString() ,"<br>");
+     
+       document.write(current , "<br>");
+       
+       document.write(specific , "<br>");
+
+       document.write(today.toLocaleDateString());  // it starts from 0 to 11
+    </script>
+</body>
+</html>
