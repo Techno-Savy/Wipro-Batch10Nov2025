@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <!-- You want to fetch employee data from a server and display it dynamically-->  
+
+  <h3> Employee Data</h3>
+
+<ul>
+
+        <li>Niti - Trainer</li>
+        <li>Gajendra - Trainer</li>
+        <li>Sakshi - Trainer</li>
+</ul>
+<!-- 1. drawback in above code is that every time when there is a change you have to go back and modify the code 
+ 2) data is static and not reusable-->
+
+ <!-- so the solution is to use modern approach i.e. dynamic JSON + JS-->
+<h3> Product Data in JSON</h3>
+<ul id="productlist"></ul>
+<script>
+const jsonData=`
+[
+        {"item" : "Laptop" , "price":60000},
+        {"item" : "Mouse" , "price":1000},
+        {"item" : "Keyboard" , "price":5000},
+        {"item" : "Monitor" , "price":12000}
+]`;
+
+const productData = JSON.parse(jsonData);
+
+const list = document.getElementById("productlist");
+
+productData.forEach(prod => {
+
+  const li =  document.createElement("li");
+ 
+  li.textContent = `${prod.item} - ${prod.price}`;
+ list.appendChild(li);
+});
+
+
+</script>
+ 
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3> E-Commerce Dashboard</h3>
+    <pre id="output"></pre>
+    <script>
+        const cart = [
+        {item : " Laptop" , price:60000},
+        {item : " Mouse" , price:1000},
+        {item : " Keyboard" , price:5000},
+        {item : " Monitor" , price:12000},
+        ];
+       // p arrow function will take each product p from the cart array and return a new object
+       //... means it will called as a spread operator which will copy all properties of the original product obhect i.e. p
+       const discountedprice =  cart.map(p =>({...p , price : p.price * 0.10}));
+        console.log(discountedprice);
+       const filteredItems = discountedprice.filter(p => p.price > 1000);
+        console.log(filteredItems);
+       const totalPrice = filteredItems.reduce((sum , p) => sum + p.price , 0);
+        console.log(totalPrice);
+       document.getElementById("output").textContent = 
+       JSON.stringify(totalPrice);
+    </script>
+</body>
+</html>
