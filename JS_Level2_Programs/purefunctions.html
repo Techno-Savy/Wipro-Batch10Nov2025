@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // traditional method for incrementing the salary 
+
+        const salaries = [34000 ,45000 ,23000];
+        console.log(salaries[0]);// which will be helpful in accessing the element at 0th location
+        const newsalaries = [];
+
+        for(let i=0; i<salaries.length;i++)
+    {
+        newsalaries.push(salaries[i] + 1000);
+    }
+
+    console.log("New Salary using Traditional method" , newsalaries);
+        const highlyPaid = [];
+     for(let i=0 ; i<salaries.length ; i++)
+    {
+        if(salaries[i] > 25000)
+        highlyPaid.push(salaries[i])
+    }
+    console.log("Highly paid employees using Traditional method" , highlyPaid);
+
+     let totalSalary = 0;
+     for(let i=0 ; i<salaries.length ; i++)
+    {
+        totalSalary += salaries[i];
+    }
+    console.log("Total Salary using Traditional method" , totalSalary);
+
+
+    //------------------- Using Pure Functions ----------------------
+    const salariesOfEmp = [34000 ,45000 ,23000];
+    const newSalariesOfEmp = salariesOfEmp.map(sal => sal+1000);
+    console.log("New Salary of an Employee using map :" , newSalariesOfEmp);
+
+    const highlyPaidEmp = salariesOfEmp.filter(sal => sal>25000);
+
+    console.log("Highly Paid Salary of an Employee using filter :" , highlyPaidEmp);
+
+    const totalSalOfEmp = salariesOfEmp.reduce((sum,sal) => sum + sal , 0);
+
+    console.log("Total Salary spent on Employees using reduce" , totalSalOfEmp);
+
+    </script>
+</body>
+</html>
