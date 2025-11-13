@@ -43,3 +43,23 @@ manipulation Dom in jquery
 .html() -- set or get the content with html of selected elements
 .val() -- set or get the value of a form
 
+
+
+Just use some optimized tips :
+Dom access  : cache selectors instead of repeatedly calling document.getElementById()
+Loops :  use for or map instead of foreach
+Network : use asyn/await with error hanling
+Images : lazy load large images 
+Code  : js / css -- cdn link bundle 
+
+without optimization there will be 
+repeated dom calls
+no caching
+multiple parallel ajax requests
+
+with optimization
+use promise.all() to fetch all data in parallel
+update DOM once using a DocumentFragement 
+use async/await for readibility
+
+
