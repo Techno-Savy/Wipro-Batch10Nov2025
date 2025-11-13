@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+
+    <button onclick="calculateDiscount('price', 10)">Discount</button>
+    <script>
+        // Syntax of try & catch which will ensure that our UI will not get crash , hang even if data in invalid
+        // try{
+
+        //     let result  = function1();
+        //     console.log(result);
+        // }
+        // catch(error)
+        // {
+        //     console.error("Error has occured : " , error.message);
+        // }
+        // finally
+        // {
+        //     console.log("finally block ");
+        // }
+
+
+        function calculateDiscount(price , discount)
+        {
+            try{
+                if(typeof price !== "number" || typeof discount !== "number") 
+            {
+                throw new Error("Price and discount should have numeric values");
+            }
+          let final =   price - (price * discount /100);
+          console.log("Final Price is : " , final);
+            }
+
+            catch(error)
+            {
+                document.write("Calculation error : " , error.message);
+            }
+        }
+
+
+    </script>
+</body>
+</html>

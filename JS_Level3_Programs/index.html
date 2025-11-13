@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- DOM Objects  :  (Document Object Model) It is programming interface for HTML and XML documents
+    It represents the structure of a web page as a tree of objects that Java Script can access  and modify dynamically 
+    Dom Objects : document , window , navigator , history , location 
+    -->
+
+    <h1 id="heading"> Welcome All! </h1>
+    <button onclick="changeText()">Click here</button>
+    <script>
+        function changeText()
+        {
+            document.getElementById("heading").innerText = " Dom Example ";
+            console.log("Heading is changed using Dom Object");
+            console.log("current url " , location.href);
+        }
+
+        /*
+            ES6+ features
+
+            let, const  -- block scoped variables
+            arrow function --  const sum = (a,b) => a+b;
+            String Interpolation --- ${name} -- Dynamic value to print
+            Destructing  --- const{name, age, rollno} = user;
+            spread operator --- if you collect data  [...arr]
+    
+           
+        */
+    </script>
+
+   
+</body>
+</html>
