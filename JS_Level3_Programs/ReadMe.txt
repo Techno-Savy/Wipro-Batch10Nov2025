@@ -63,3 +63,9 @@ update DOM once using a DocumentFragement
 use async/await for readibility
 
 
+promise.all() --  for parallel fetches when both or multiple network request run concurrently , just to minimize wait time for remote responses.
+async/await -- Clean asynchronous flow (the await is used with Promise.all()).
+documentfragment  -- in-memory and append fragment once to prevent repeated reflows
+cached selector === used once for final dom update ; never re-query it during it loop.
+
+
