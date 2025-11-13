@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+</head>
+<body>
+  <!--$.deferred and simulated ajax calls for testing logic without a real backend still you want to
+  simulate that delay --- as if the server took 5 to 6 seconds to respond --> 
+  <!-- <script>
+  function getEmployees()
+  {
+
+    let employees= [
+        {id:1 ,name:"Niti", salary: 10000},
+        {id:2 ,name:"Jatin", salary: 30000},
+        {id:3 ,name:"Preeti", salary: 50000},
+        {id:4 ,name:"Shubham", salary: 100000},
+    ];
+    return employees;
+  }
+
+  const data1 = getEmployees();
+  console.log("Employees Data :" , data1);
+  </script> -->
+
+  <!-- Here we can not call deferred and cannot use .then() or .done() as it is synchronous call-->
+<script>
+
+
+// If you want to simulate an AJAX call for testing / demo 
+// purpose to manually resolve or reject an async process
+function getEmployees()
+  {
+
+    let employees= [
+        {id:1 ,name:"Niti", salary: 10000},
+        {id:2 ,name:"Jatin", salary: 30000},
+        {id:3 ,name:"Preeti", salary: 50000},
+        {id:4 ,name:"Shubham", salary: 100000}
+    ];
+   // $.Deferred() -- will track the order or data and notifies you when it is ready
+   // setTimeout --- intentionally delaying the process
+    // we will do the simulation with deferred
+    return $.Deferred(function (defer)
+{
+
+setTimeout(()=>
+{
+    defer.resolve(employees);
+    },2000); // duration of delay
+
+}).promise();
+  }
+
+  getEmployees().done(data => console.log("Employees Data : ", data));
+  console.log("Fetching data ...");
+
+</script>
+
+</body>
+</html>
