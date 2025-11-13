@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>optimized Dashboard</h2>
+    <h1>Cache selectors ,  single Dom Update , document Fragment , promise.all ,async/await</h1>
+    <p>We can see the difference on console via logs</p>
+    <ul id="userList"></ul>
+    <script>
+        async function loadDashboard()
+        {
+             const timestart =     performance.now();
+             //fetching the data concurrently  (Promise.all)
+             const[users,posts] = await Promise.all([
+
+             fetch("https://jsonplaceholder.typicode.com/users").then(r => r.json()),
+             fetch("https://jsonplaceholder.typicode.com/posts").then(r => r.json()),
+            ])
+
+
+            // use a documentfragment(in-memory) to batch dom update(single append child we will keeping)
+             const fragment =  document.createDocumentFragment();
+
+             // Here we have build or keep the elements in-memory : 
+             // so we use cached selector only at the final append
+             
+            users.slice(0,50).forEach(u => {
+              
+               const li =  document.createElement("li");
+               li.textContent = `${u.name} - ${u.email}`;
+               fragement.appendChild(li);// appends to a fragment
+            });
+
+            // Single Dom Mutation using cached selector
+            userList.appendChild(fragment);
+            const timestop = performance.now();
+            console.log("total time taken :" , Math.round(timestop - timestart));
+            console.log("users : ", users.length , "posts :" , posts.length); 
+        }
+     loadDashboard();
+    </script>
+</body>
+</html>
