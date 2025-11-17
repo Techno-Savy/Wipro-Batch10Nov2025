@@ -1,0 +1,6 @@
+com\configurationstyle\App.class
+com\configurationstyle\Allocator.class
+com\configurationstyle\AppConfig.class
+com\configurationstyle\JavaConfig.class
+com\configurationstyle\DelegateConstructorDI.class
+com\configurationstyle\Manager.class
