@@ -1,0 +1,5 @@
+com\taskapp\model\Task.class
+com\taskapp\AppInitializer.class
+com\taskapp\controller\TaskController.class
+com\taskapp\config\AppConfig.class
+com\taskapp\config\WebMvcConfig.class
