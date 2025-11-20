@@ -1,0 +1,3 @@
+com\company\HibernateORM\Util\HibernateUtil.class
+com\company\HibernateORM\model\Student.class
+com\company\HibernateORM\App.class
