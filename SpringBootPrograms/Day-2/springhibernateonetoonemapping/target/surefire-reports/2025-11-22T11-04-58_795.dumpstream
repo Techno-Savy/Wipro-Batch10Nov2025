@@ -1,0 +1,5 @@
+# Created at 2025-11-22T11:04:58.955
+Boot Manifest-JAR contains absolute paths in classpath 'D:\OngoingB2BTrainings\Wipro- Training\SpringBoot\springhibernateonetoonemapping\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
