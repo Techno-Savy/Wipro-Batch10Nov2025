@@ -1,0 +1,8 @@
+com\wipro\onetomany\entity\Courses.class
+com\wipro\onetomany\App.class
+com\wipro\onetomany\config\AppConfig.class
+com\wipro\onetomany\service\StudentService.class
+com\wipro\onetomany\dao\StudentDaoImpl.class
+com\wipro\onetomany\entity\ReportCard.class
+com\wipro\onetomany\dao\IStudentDao.class
+com\wipro\onetomany\entity\Student.class
