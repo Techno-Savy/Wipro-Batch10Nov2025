@@ -1,0 +1,95 @@
+Mapping in hibernate :-
+
+a) Pure Hibernate  ->  configuration(hibernate.cfg.xml) --->  SessionFactory (Singleton design pattern) --> Session(per job)
+                            Transaction ---> Crud/Queries ---> JDBC Dialect ---> DB(H2( Testing Database / MySql)
+(We manually build SessionFactory)                            
+b) Spring + Hibernate(JPA) --- >We use LocalSessionFactoryBean instead of manually building the SessionFactory
+We delegate factory creation to LocalSessionFactoryBean and manage transactions via HibernateTransactionManager
+
+Mapping are of several types :
+
+a) One to One --- > 
+
+unidirectional - One to one ---> ( Student --- > ReportCard)
+
+Where one entity class is the owner and having the reference of another entity class via foreign key created by hibernate  in owner class itself 
+And another class is not having the reference of the owner class 
+Taking an example of Student and ReportCard
+
+@Entity  and @OneToOne(cascade = CascadeType.ALL)
+@joinColumn(name="foreign_Key name") // Generally it will be a unique key in child table
+
+	//Unidirectional one-to-one mapping with ReportCard
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="reportcard_id") // fk in Student table ( which shows that student has a reference of Report Card)
+	private ReportCard reportcard;
+
+
+Cascade -->  If we perform an operation on the parent/owner entity , apply the same operation automatically to the associated child entity
+
+Cascade Types :
+Persist --> Save child when saving parent
+Merge --> Update child when updating parent
+Remove --> Delete child when deleting parent
+All --> Includes all above
+
+without cascade manually we have to save the reportcard and student both entities but with cascade Hibernate does it automatically.
+
+In one to one if we query via the student it will work fine but if we try to get the details of student via reportcard  (reportcard.getStudent()) 
+it  will not work because report doesn't hold that reference
+
+
+
+Bidirectional (Student ---> ReportCard) and (ReportCard ----> Student)
+
+In child class i.e. ReportCard use @OneToOne(mappedBy="class_reference name you defined in Student main entity") 
+                                   private Student student;
+
+Now we can navigate student to reportcard and reportcard to student
+Hibernate treats one side as owner (Student with @JoinColumn) and the other side as inverse which is a child (mappedBy in ReportCard) 
+Only the owner side updates the foreign key column in the DB
+
+
+b) One to Many --- > 
+
+i) unidirectional - One to Many ---> ( Student --- > Courses)
+In Student entity 
+//Unidirectional one-to-many mapping with courses
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="student_id") // fk in course table ( which shows that student has a reference of Report Card)
+	private List<Course> courses = new ArrayList<>();
+	
+
+ii)  Bidirectional -- Student <---> Courses
+
+In Student entity
+   /* bidirectional 
+	@OneToMany(mappedBy="student" , cascade=CascadeType.ALL)
+	private List<Course> courses = new ArrayList<>();
+*/
+
+In Course entity
+	/* If it is bidirectional
+	@ManyToOne
+	@JoinColumn(name="student_id")  // Student_id will be a foreign key in the owner table
+	private Student student;
+    */
+
+3. Unidirectional : Many-to-Many  (Student -> Course)
+//Unidirectional many-to-many mapping with courses
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="student_course" , joinColumns=@JoinColumn(name="student_id"),inverseJoinColumns=@JoinColumn(name="course_id")) //will create a separate table 
+	private List<Course> courses = new ArrayList<>();
+
+No change in course entity
+
+// to make it as Bidirectional many-to-many apply below changes in course entity 
+@ManyToMany(mappedBy="courses")
+	private List<Student> students = new ArrayList();
+
+
+Summary :
+
+In Unidirectional : Parent has @OneToMany + @JoinColumn .  Child doesn't have reference Parent.
+Bidirectional : Child adds @ManyToOne(mappedBy) back to Parent ---> Both side navigation is possible
+
